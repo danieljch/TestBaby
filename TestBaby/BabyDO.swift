@@ -6,3 +6,10 @@
 //
 
 import Foundation
+// Data Object
+import Foundation
+
+struct BabyDO: Identifiable {
+    let id = UUID()
+    var name: String
+}
