@@ -1,5 +1,5 @@
 //
-//  BabyView.swift
+//  Baby.swift
 //  TestBaby
 //
 //  Created by Daniel Jesus Callisaya Hidalgo on 26/1/24.
@@ -8,8 +8,8 @@
 // View
 import SwiftUI
 
-struct BabyViewView: View {
-    @State private var oo = BabyViewOO()
+struct BabyView: View {
+    @State private var oo = BabyOO()
     
     var body: some View {
         List(oo.data) { datum in
@@ -22,7 +22,7 @@ struct BabyViewView: View {
 }
 
 #Preview {
-    BabyViewView()
+    BabyView()
 }
 
 // Observable Object
@@ -30,20 +30,20 @@ import Observation
 import SwiftUI
 
 @Observable
-class BabyViewOO {
-    var data: [BabyViewDO] = []
+class BabyOO {
+    var data: [BabyDO] = []
     
     func fetch() {
-        data = [BabyViewDO(name: "Datum 1"),
-                BabyViewDO(name: "Datum 2"),
-                BabyViewDO(name: "Datum 3")]
+        data = [BabyDO(name: "Datum 1"),
+                BabyDO(name: "Datum 2"),
+                BabyDO(name: "Datum 3")]
     }
 }
 
 // Data Object
 import Foundation
 
-struct BabyViewDO: Identifiable {
+struct BabyDO: Identifiable {
     let id = UUID()
     var name: String
 }
