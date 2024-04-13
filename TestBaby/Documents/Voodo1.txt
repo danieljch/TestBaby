@@ -1,0 +1,64 @@
+@El modelo VOODO es una arquitectura específica para aplicaciones SwiftUI, diseñada para simplificar el desarrollo y hacerlo más intuitivo. Este modelo se compone de tres componentes principales:
+
+1. **View (Vista)**: Es la interfaz de usuario que presentas al usuario. Aquí se muestran los datos y se recogen las interacciones del usuario.
+
+2. **ObservableObject (Objeto Observable)**: Es una clase especial que las vistas pueden observar. Cuando los valores dentro de esta clase cambian, notifica a las vistas suscritas para que puedan actualizarse automáticamente con los nuevos valores.
+
+3. **DataObject (Objeto de Datos)**: Estos objetos contienen los datos que describen algo, como por ejemplo, un objeto de datos de persona podría contener el nombre, la edad y la altura de una persona.
+
+La idea detrás de VOODO es separar claramente las responsabilidades dentro de la aplicación, facilitando así la búsqueda de código, el desarrollo, las pruebas, y la adición de nuevas características. Esta estructura no solo es nativa y efectiva sino que también se escala bien para proyectos más grandes.
+
+### Ejemplo Breve del Modelo VOODO
+
+A continuación, te muestro un ejemplo sencillo que ilustra cómo se implementaría este modelo en una aplicación SwiftUI que lista libros:
+
+**View (Vista):**
+
+
+struct BooksView: View {
+    @State private var oo = BooksOO()
+
+    var body: some View {
+        List(oo.data) { book in
+            Text(book.name)
+        }
+        .font(.title)
+        .onAppear {
+            oo.fetch()
+        }
+    }
+}
+
+
+**ObservableObject (Objeto Observable):**
+
+
+import Observation
+
+@Observable
+class BooksOO {
+    var data: [BooksDO] = []
+
+    func fetch() {
+        data = [
+            BooksDO(name: "SwiftUI Views Mastery"),
+            BooksDO(name: "SwiftUI Animations Mastery"),
+            BooksDO(name: "Combine Mastery in SwiftUI"),
+            // Añadir más libros según sea necesario
+        ]
+    }
+}
+
+
+**DataObject (Objeto de Datos):**
+
+
+import Foundation
+
+struct BooksDO: Identifiable {
+    let id = UUID()
+    var name: String
+}
+
+
+Este ejemplo demuestra cómo los tres componentes del modelo VOODO trabajan juntos para crear una aplicación que es fácil de entender, modificar y expandir. La vista muestra una lista de libros, el objeto observable (BooksOO) contiene la lógica para obtener los datos de los libros, y el objeto de datos (BooksDO) define cómo se estructura cada libro .

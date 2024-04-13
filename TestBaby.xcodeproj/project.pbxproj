@@ -61,9 +61,9 @@
 				27F81F4D2B61AC1C00A6DF78 /* ContentView.swift */,
 				2709EBE12B648779002F8C9F /* BabyView.swift */,
 				278516782B683E390033067A /* BabyOO.swift */,
+				2785167A2B683E560033067A /* BabyDO.swift */,
 				27F81F4F2B61AC1E00A6DF78 /* Assets.xcassets */,
 				27F81F512B61AC1E00A6DF78 /* Preview Content */,
-				2785167A2B683E560033067A /* BabyDO.swift */,
 			);
 			path = TestBaby;
 			sourceTree = "<group>";

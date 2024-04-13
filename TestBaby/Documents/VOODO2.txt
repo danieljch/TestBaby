@@ -1,0 +1,101 @@
+WWDC 2023 introduced us to the new iOS-17@Observable property wrapper along with a cleaned-up @State that now supersedes the previous @State @ObservedObject, @StateObject. This is fantastic — it’s always been a source of confusion for those starting on SwiftUI and a source of bugs (with various recommendations on what to use and when).
+All this feels like it’s gone and we are left with the simple choice of @Environment, @State, and @Bindable with clean usage (in order: app-wide, view-wide, and binding to a parent). Love it!
+Let’s take a quick look at how this works. You’ll notice that tapping the button triggers a screen refresh to display the new value of myString. You also no longer need @Published. Fantastic!
+import SwiftUI
+import Observation
+
+@Observable
+class Model {
+    var myString: String = "Hello"
+}
+
+struct ContentView: View {
+    @State var model: Model
+
+    var body: some View {
+        VStack {
+            Text("myString: \(model.myString)")
+            Button("Hit me") {
+                model.myString = "new"                
+            }
+        }
+    }
+}
+Macros appear to be the driver — so is this simply a string replacement of the old approach? Well, by digging deeper and using the new “expand macro” option in Xcode we can start to see what is going on:
+
+The @Observable Macro Expanded
+Well, this is different! Digging further we see that Observable is a protocol in the Observation framework — which is brand new. We had to import this framework so perhaps this isn’t a shock. The previous ObservableObject was actually part of Combine and this one looks similar. Additionally, the new @Model also uses this.
+There is a hint in the WWDC video Discover Observation in SwiftUI — WWDC23 — Videos — Apple Developer which suggests something more. In the video, it discusses the observability of arrays which leads me to ponder the existing issue of nested objects in observables which has a variety of solutions and perhaps even the suggestion of an anti-pattern.
+Here’s an example of where the previous approach didn’t work. Tapping the button here would not have the intended effect of triggering a view refresh as the Model object itself never changed (only an object being referenced by the Model). The array of references itself remains unchanged and therefore a change event is never triggered.
+import Combine
+import SwiftUI
+
+class Model: ObservableObject {
+    @Published var str = "Outer"
+    @Published var innerModels: [InnerModel] = [InnerModel(), InnerModel(), InnerModel()]
+}
+
+class InnerModel {
+    @Published var str = "inner"
+}
+
+struct ContentView: View {
+    @ObservedObject var model: Model
+    var body: some View {
+        VStack {
+            List(model.array, id: \.id) { element in
+                Text(element.str)
+            }
+            Button("Hit me") {
+                model.innerModels[1].str = "KABOOM"
+            }
+        }
+        .padding()
+    }
+}
+There is a solution to the above — switch the inner model to using structs and the problem is solved but value semantics may not be desired.
+The hint in the WWDC that the new approach works for arrays too suggests that this problem has been solved. Let’s take a look:
+import SwiftUI
+import Observation
+
+@Observable class Model {
+    var innerModels: [InnerModel] = [InnerModel(), InnerModel(), InnerModel()]
+}
+
+@Observable class InnerModel: Identifiable {
+    var str = "inner"
+}
+
+struct ContentView: View {
+    @State var model = Model()
+
+    var body: some View {
+        VStack {
+            List($model.innerModels, id: \.id) { element in
+                Text(element.str.wrappedValue)
+            }
+            Button("Hit me") {
+                model.innerModels[1].str = "KABOOM"
+            }
+        }
+    }
+}
+And you’ll discover that it has!! This is great — allows us to think a lot less about code “plumbing” — it just works!! (Caveat — still early days in testing this!)
+So what is the secret sauce?
+The driver behind the Observation framework is the ability to detect a change in the properties contained in a closure of a new function called withObservationTracking.
+For example:
+func testObservation() {
+    withObservationTracking {
+        print(model.inner[1].str)
+    } onChange: {
+        print("Schedule renderer.")
+    }
+}
+The onChange closure is only called when specifically model.inner[1].str has changed. Changing other properties on the model or other objects in the array or even other properties on model.inner[1]does nothing. That is magical! And could this be useful outside the explicit SwiftUI usage?
+Please refer to the Observation Framework documentation for more details.
+Side note, now that we don’t need @Published — everything automatically updates — perhaps there are cases where you don’t want a property to trigger updates. The new ObservationIgnored can be used for particular properties that should not be observed:
+@Observable
+class Model {
+    @ObservationIgnored var myString: String = "Hello"
+    var innerModels: [InnerModel] = [InnerModel(), InnerModel(), InnerModel()]
+}
