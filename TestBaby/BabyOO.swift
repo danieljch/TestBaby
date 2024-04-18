@@ -20,19 +20,39 @@ class SymbolsOO {
     func loadSymbols() {
         // Grupo 1: Objetos comunes
         let group1 = [
-            SymbolsDO(name: "Casa", symbol: "house"),
-            SymbolsDO(name: "Auto", symbol: "car"),
-            SymbolsDO(name: "Lápiz", symbol: "pencil"),
-        ]
-
+            SymbolsDO(name: "House", symbol: "house.fill"),
+            SymbolsDO(name: "Car", symbol: "car.fill"),
+            SymbolsDO(name: "Pencil", symbol: "pencil"),
+            SymbolsDO(name: "Tree", symbol: "tree.fill"),
+            SymbolsDO(name: "Book", symbol: "book.fill"),
+            SymbolsDO(name: "Phone", symbol: "phone.fill"),
+            SymbolsDO(name: "Bike", symbol: "bicycle.fill"),
+            SymbolsDO(name: "Ferry", symbol: "ferry.fill")]
         // Grupo 2: Elementos climáticos
         let group2 = [
-            SymbolsDO(name: "Sol", symbol: "sun.max"),
-            SymbolsDO(name: "Luna", symbol: "moon"),
-            SymbolsDO(name: "Nube", symbol: "cloud"),
+            SymbolsDO(name: "Sun", symbol: "sun.max"),
+            SymbolsDO(name: "Moon", symbol: "moon"),
+            SymbolsDO(name: "Cloud", symbol: "cloud"),
+            SymbolsDO(name: "Rain", symbol: "cloud.rain"),
+            SymbolsDO(name: "Snow", symbol: "snow"),
+            SymbolsDO(name: "Wind", symbol: "wind"),
+            SymbolsDO(name: "Tornado", symbol: "tornado"),
+            SymbolsDO(name: "Fog", symbol: "cloud.fog"),
         ]
 
-        data = group1 + group2
+        // Grupo 3: Elementos de animales
+        let group3 = [
+            SymbolsDO(name: "Dog", symbol: "dog.fill"),
+            SymbolsDO(name: "Cat", symbol: "cat.fill"),
+            SymbolsDO(name: "Bird", symbol: "bird.fill"),
+            SymbolsDO(name: "Fish", symbol: "fish.fill"),
+            SymbolsDO(name: "Lizard", symbol: "lizard.fill"),
+            SymbolsDO(name: "Ladybug", symbol: "ladybug.fill"),
+            SymbolsDO(name: "Rabbit", symbol: "hare.fill"),
+            SymbolsDO(name: "Turtle", symbol: "tortoise.fill"),
+        ]
+
+        data = group1 + group2 + group3
     }
 }
 
