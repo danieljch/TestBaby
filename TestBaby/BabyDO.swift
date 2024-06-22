@@ -6,11 +6,10 @@
 //
 
 
+import SwiftUI
 
-import Foundation
-
-struct SymbolsDO: Identifiable {
+struct SymbolDO: Identifiable {
     let id = UUID()
-    var name: String
-    var symbol: String
+    let name: String
 }
+

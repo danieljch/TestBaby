@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2709EBE22B648779002F8C9F /* BabyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709EBE12B648779002F8C9F /* BabyView.swift */; };
+		271369072BEC409500D8F111 /* animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271369062BEC409500D8F111 /* animation.swift */; };
 		278516792B683E390033067A /* BabyOO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278516782B683E390033067A /* BabyOO.swift */; };
 		2785167B2B683E560033067A /* BabyDO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785167A2B683E560033067A /* BabyDO.swift */; };
 		27F81F4C2B61AC1C00A6DF78 /* TestBabyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F81F4B2B61AC1C00A6DF78 /* TestBabyApp.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		2709EBE12B648779002F8C9F /* BabyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyView.swift; sourceTree = "<group>"; };
+		271369062BEC409500D8F111 /* animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = animation.swift; sourceTree = "<group>"; };
 		278516782B683E390033067A /* BabyOO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyOO.swift; sourceTree = "<group>"; };
 		2785167A2B683E560033067A /* BabyDO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabyDO.swift; sourceTree = "<group>"; };
 		27F81F482B61AC1C00A6DF78 /* TestBaby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestBaby.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +63,7 @@
 				27F81F4D2B61AC1C00A6DF78 /* ContentView.swift */,
 				2709EBE12B648779002F8C9F /* BabyView.swift */,
 				278516782B683E390033067A /* BabyOO.swift */,
+				271369062BEC409500D8F111 /* animation.swift */,
 				2785167A2B683E560033067A /* BabyDO.swift */,
 				27F81F4F2B61AC1E00A6DF78 /* Assets.xcassets */,
 				27F81F512B61AC1E00A6DF78 /* Preview Content */,
@@ -150,6 +153,7 @@
 				27F81F4E2B61AC1C00A6DF78 /* ContentView.swift in Sources */,
 				2709EBE22B648779002F8C9F /* BabyView.swift in Sources */,
 				27F81F4C2B61AC1C00A6DF78 /* TestBabyApp.swift in Sources */,
+				271369072BEC409500D8F111 /* animation.swift in Sources */,
 				278516792B683E390033067A /* BabyOO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
