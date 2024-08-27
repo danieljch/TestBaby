@@ -4,7 +4,6 @@
 //
 //  Created by Daniel Jesus Callisaya Hidalgo on 8/5/24.
 //
-
 import SwiftUI
 
 enum SymbolAnimationState {
