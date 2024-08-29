@@ -1,10 +1,3 @@
-//
-//  animation.swift
-//  TestBaby
-//
-//  Created by Daniel Jesus Callisaya Hidalgo on 8/5/24.
-//
-
 import SwiftUI
 import Combine
 
@@ -45,13 +38,13 @@ struct AnimatedSymbolView: View {
                 .offset(y: yOffset)
                 .animation(.easeInOut(duration: currentAnimation.duration), value: scale)
                 .animation(.easeInOut(duration: currentAnimation.duration), value: yOffset)
-                .onAppear {
-                    startAnimationCycle()
-                }
 
             Text("Tiempo restante: \(remainingTime)")
                 .font(.headline)
                 .padding(.top, 10)
+        }
+        .onAppear {
+            startAnimationCycle()
         }
         .onReceive(timer) { _ in
             elapsedTime += 0.1
@@ -63,17 +56,21 @@ struct AnimatedSymbolView: View {
     }
 
     private func startAnimationCycle() {
+        currentAnimationIndex = 0
         advanceState()
     }
 
     private func advanceState() {
-        scale = currentAnimation.scale
-        yOffset = currentAnimation.yOffset
+        withAnimation(.easeInOut(duration: currentAnimation.duration)) {
+            scale = currentAnimation.scale
+            yOffset = currentAnimation.yOffset
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + currentAnimation.duration) {
             currentAnimationIndex = (currentAnimationIndex + 1) % SymbolAnimation.allAnimations.count
             if currentAnimationIndex == 0 {
                 onAnimationComplete()
+                startAnimationCycle()
             } else {
                 advanceState()
             }
