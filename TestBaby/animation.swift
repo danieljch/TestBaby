@@ -1,5 +1,4 @@
 //
-//
 //  animation.swift
 //  TestBaby
 //
@@ -98,7 +97,9 @@ struct AnimatedSymbolView: View {
         case .largeToSmall:
             scale = 0.2
             state = state.nextState
-            onAnimationComplete()
+            DispatchQueue.main.asyncAfter(deadline: .now() + state.duration) {
+                onAnimationComplete()
+            }
         }
     }
 }
