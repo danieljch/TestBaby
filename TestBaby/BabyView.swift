@@ -1,16 +1,18 @@
 //
+//
 //  Baby.swift
 //  TestBaby
 //
 //  Created by Daniel Jesus Callisaya Hidalgo on 26/1/24.
 //
 
-// View
 import SwiftUI
+import Combine
 
 struct SymbolsView: View {
     @State private var oo = SymbolsOO()
     @State private var remainingTime = 0
+    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
         VStack {
@@ -25,20 +27,14 @@ struct SymbolsView: View {
         .font(.largeTitle)
         .onAppear {
             remainingTime = 6
-            startCountdown()
         }
-    }
-
-    private func startCountdown() {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+        .onReceive(timer) { _ in
             if remainingTime > 0 {
                 remainingTime -= 1
             }
         }
     }
 }
-
-
 
 #Preview {
    SymbolsView()
