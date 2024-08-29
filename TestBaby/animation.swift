@@ -1,5 +1,6 @@
 //
 //
+//
 //  animation.swift
 //  TestBaby
 //
@@ -26,15 +27,15 @@ enum SymbolAnimationState {
 
     var scale: CGFloat {
         switch self {
-        case .smallToLarge: return 0.2
+        case .smallToLarge: return 2
         case .steady, .largeToSmall, .jump: return 2
         }
     }
 
     var duration: TimeInterval {
         switch self {
-        case .smallToLarge, .largeToSmall: return 2
-        case .steady: return 2
+        case .smallToLarge, .largeToSmall: return 1.5
+        case .steady: return 1.5
         case .jump: return 0.5
         }
     }
