@@ -8,49 +8,22 @@
 import SwiftUI
 import Combine
 
-enum SymbolAnimationState {
-    case smallToLarge
-    case steady
-    case largeToSmall
-    case jump
+struct SymbolAnimation {
+    let scale: CGFloat
+    let duration: TimeInterval
+    let yOffset: CGFloat
 
-    var nextState: SymbolAnimationState {
-        switch self {
-        case .smallToLarge: return .steady
-        case .steady: return .jump
-        case .jump: return .largeToSmall
-        case .largeToSmall: return .smallToLarge
-        }
-    }
-
-    var scale: CGFloat {
-        switch self {
-        case .smallToLarge: return 2
-        case .steady, .largeToSmall, .jump: return 2
-        }
-    }
-
-    var duration: TimeInterval {
-        switch self {
-        case .smallToLarge, .largeToSmall: return 1.5
-        case .steady: return 2
-        case .jump: return 1 // Ajusta la duración del salto aquí
-        }
-    }
-
-    var yOffset: CGFloat {
-        switch self {
-        case .jump: return -100 // Incrementa el desplazamiento vertical aquí
-        default: return 0
-        }
-    }
+    static let smallToLarge = SymbolAnimation(scale: 2, duration: 1.5, yOffset: 0)
+    static let steady = SymbolAnimation(scale: 2, duration: 2, yOffset: 0)
+    static let largeToSmall = SymbolAnimation(scale: 0.2, duration: 1.5, yOffset: 0)
+    static let jump = SymbolAnimation(scale: 2, duration: 1, yOffset: -100)
 }
 
 struct AnimatedSymbolView: View {
     let symbolName: String
     let onAnimationComplete: () -> Void
+    let animation: SymbolAnimation
     @Binding var remainingTime: Int
-    @State private var state: SymbolAnimationState = .smallToLarge
     @State private var scale: CGFloat = 0.2
     @State private var yOffset: CGFloat = 0
     private let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
@@ -64,8 +37,8 @@ struct AnimatedSymbolView: View {
                 .frame(width: 100, height: 100)
                 .scaleEffect(scale)
                 .offset(y: yOffset)
-                .animation(.easeInOut(duration: state.duration), value: scale)
-                .animation(.easeInOut(duration: state.duration), value: yOffset)
+                .animation(.easeInOut(duration: animation.duration), value: scale)
+                .animation(.easeInOut(duration: animation.duration), value: yOffset)
                 .onAppear {
                     startAnimationCycle()
                 }
@@ -76,7 +49,7 @@ struct AnimatedSymbolView: View {
         }
         .onReceive(timer) { _ in
             elapsedTime += 0.1
-            if elapsedTime >= state.duration {
+            if elapsedTime >= animation.duration {
                 elapsedTime = 0
                 advanceState()
             }
@@ -88,25 +61,10 @@ struct AnimatedSymbolView: View {
     }
 
     private func advanceState() {
-        switch state {
-        case .smallToLarge:
-            scale = state.scale
-            state = state.nextState
-        case .steady:
-            scale = state.scale
-            state = state.nextState
-        case .jump:
-            yOffset = state.yOffset
-            DispatchQueue.main.asyncAfter(deadline: .now() + state.duration / 2) {
-                yOffset = 0
-            }
-            state = state.nextState
-        case .largeToSmall:
-            scale = 0.2
-            state = state.nextState
-            DispatchQueue.main.asyncAfter(deadline: .now() + state.duration) {
-                onAnimationComplete()
-            }
+        scale = animation.scale
+        yOffset = animation.yOffset
+        DispatchQueue.main.asyncAfter(deadline: .now() + animation.duration) {
+            onAnimationComplete()
         }
     }
 }
