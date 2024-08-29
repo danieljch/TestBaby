@@ -34,7 +34,14 @@ enum SymbolAnimationState {
         switch self {
         case .smallToLarge, .largeToSmall: return 1.5
         case .steady: return 2
-        case .jump: return 1
+        case .jump: return 1 // Ajusta la duración del salto aquí
+        }
+    }
+
+    var yOffset: CGFloat {
+        switch self {
+        case .jump: return -100 // Incrementa el desplazamiento vertical aquí
+        default: return 0
         }
     }
 }
@@ -89,7 +96,7 @@ struct AnimatedSymbolView: View {
             scale = state.scale
             state = state.nextState
         case .jump:
-            yOffset = -30
+            yOffset = state.yOffset
             DispatchQueue.main.asyncAfter(deadline: .now() + state.duration / 2) {
                 yOffset = 0
             }
