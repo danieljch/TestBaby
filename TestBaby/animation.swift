@@ -4,7 +4,12 @@
 //
 //  Created by Daniel Jesus Callisaya Hidalgo on 8/5/24.
 //
+<<<<<<< HEAD
 import SwiftUI
+=======
+
+iimport SwiftUI
+>>>>>>> 56734c8fbe2f87ca8dc65af63d2174b9b33de7f9
 
 enum SymbolAnimationState {
     case smallToLarge
