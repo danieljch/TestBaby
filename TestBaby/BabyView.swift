@@ -27,11 +27,6 @@ struct SymbolsView: View {
         .onAppear {
             remainingTime = 6
         }
-        .onReceive(timer) { _ in
-            if remainingTime > 0 {
-                remainingTime -= 1
-            }
-        }
     }
 }
 

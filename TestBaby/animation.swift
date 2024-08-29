@@ -23,6 +23,7 @@ struct AnimatedSymbolView: View {
     @State private var yOffset: CGFloat = 0
     private let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
     @State private var elapsedTime: TimeInterval = 0
+    @State private var totalElapsedTime: TimeInterval = 0
 
     private var currentAnimation: SymbolAnimation {
         SymbolAnimation.allAnimations[currentAnimationIndex]
@@ -48,15 +49,23 @@ struct AnimatedSymbolView: View {
         }
         .onReceive(timer) { _ in
             elapsedTime += 0.1
+            totalElapsedTime += 0.1
             if elapsedTime >= currentAnimation.duration {
                 elapsedTime = 0
                 advanceState()
+            }
+            if totalElapsedTime >= 6 {
+                onAnimationComplete()
+                totalElapsedTime = 0
+                startAnimationCycle()
             }
         }
     }
 
     private func startAnimationCycle() {
         currentAnimationIndex = 0
+        scale = 0.2
+        yOffset = 0
         advanceState()
     }
 
@@ -68,10 +77,7 @@ struct AnimatedSymbolView: View {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + currentAnimation.duration) {
             currentAnimationIndex = (currentAnimationIndex + 1) % SymbolAnimation.allAnimations.count
-            if currentAnimationIndex == 0 {
-                onAnimationComplete()
-                startAnimationCycle()
-            } else {
+            if currentAnimationIndex != 0 {
                 advanceState()
             }
         }
