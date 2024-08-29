@@ -11,7 +11,7 @@ import Combine
 
 struct SymbolsView: View {
     @State private var oo = SymbolsOO()
-    @State private var remainingTime = 0
+    @State private var remainingTime = 6
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
@@ -31,6 +31,9 @@ struct SymbolsView: View {
         .onReceive(timer) { _ in
             if remainingTime > 0 {
                 remainingTime -= 1
+            } else {
+                oo.nextSymbol()
+                remainingTime = 6
             }
         }
     }

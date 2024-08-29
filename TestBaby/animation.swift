@@ -1,6 +1,5 @@
 //
 //
-//
 //  animation.swift
 //  TestBaby
 //
@@ -35,8 +34,8 @@ enum SymbolAnimationState {
     var duration: TimeInterval {
         switch self {
         case .smallToLarge, .largeToSmall: return 1.5
-        case .steady: return 1.5
-        case .jump: return 0.5
+        case .steady: return 2
+        case .jump: return 1
         }
     }
 }
@@ -87,22 +86,18 @@ struct AnimatedSymbolView: View {
         case .smallToLarge:
             scale = state.scale
             state = state.nextState
-            remainingTime = 4
         case .steady:
             scale = state.scale
             state = state.nextState
-            remainingTime = 3
         case .jump:
             yOffset = -30
             DispatchQueue.main.asyncAfter(deadline: .now() + state.duration / 2) {
                 yOffset = 0
             }
             state = state.nextState
-            remainingTime = 2
         case .largeToSmall:
             scale = 0.2
             state = state.nextState
-            remainingTime = 0
             onAnimationComplete()
         }
     }
