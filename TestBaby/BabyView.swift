@@ -1,3 +1,13 @@
+//
+//  Baby.swift
+//  TestBaby
+//
+//  Created by Daniel Jesus Callisaya Hidalgo on 26/1/24.
+//
+
+import SwiftUI
+import Combine
+
 struct SymbolsView: View {
     @State private var oo = SymbolsOO()
     @State private var remainingTime = 6
@@ -30,4 +40,8 @@ struct SymbolsView: View {
         let currentIndex = types.firstIndex(of: currentAnimationType) ?? 0
         return types[(currentIndex + 1) % types.count]
     }
+}
+
+#Preview {
+   SymbolsView()
 }
