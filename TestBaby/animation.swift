@@ -8,6 +8,7 @@ import SwiftUI
 
 struct AnimatedSymbolView: View {
     let symbolName: String
+    let color: Color
     let onAnimationComplete: () -> Void
     @Binding var remainingTime: Int
     @State private var startTime: Date?
@@ -42,6 +43,7 @@ struct AnimatedSymbolView: View {
                 .frame(width: 100, height: 100)
                 .scaleEffect(0.2)
                 .offset(y: 0)
+                .foregroundColor(color)
             Text("Tiempo restante: \(remainingTime)")
                 .font(.headline)
                 .padding(.top, 10)
@@ -56,6 +58,7 @@ struct AnimatedSymbolView: View {
                 .frame(width: 100, height: 100)
                 .scaleEffect(scale)
                 .offset(y: yOffset)
+                .foregroundColor(color)
             Text("Tiempo restante: \(remainingTime)")
                 .font(.headline)
                 .padding(.top, 10)

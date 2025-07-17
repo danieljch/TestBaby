@@ -12,17 +12,18 @@ struct SymbolsView: View {
     @State private var oo = SymbolsOO()
     @State private var remainingTime = 0
     @State private var currentIndex = 0
+    @State private var duration: Double = 6.0
 
     var body: some View {
         TabView(selection: $currentIndex) {
-            if let symbol = oo.currentSymbol {
-                AnimatedSymbolView(symbolName: symbol.name, onAnimationComplete: {
-                    oo.nextSymbol()
-                    remainingTime = 6
-                }, remainingTime: $remainingTime)
-                .id(symbol.id)
-                .tag(0)
+            VStack {
+                if let symbol = oo.currentSymbol {
+                    AnimatedSymbolView(symbolName: symbol.name, color: symbol.color, onAnimationComplete: { oo.nextSymbol() remainingTime = Int(duration) }, remainingTime: $remainingTime)
+                    .id(symbol.id)
+                    Slider(value: $duration, in: 3...10, step: 1) { Text("Duration: \(Int(duration)) seconds") } .padding()
+                }
             }
+            .tag(0)
 
             Text("View 2")
                 .font(.largeTitle)
@@ -34,7 +35,7 @@ struct SymbolsView: View {
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
         .onAppear {
-            remainingTime = 6
+            remainingTime = Int(duration)
             startCountdown()
         }
     }
