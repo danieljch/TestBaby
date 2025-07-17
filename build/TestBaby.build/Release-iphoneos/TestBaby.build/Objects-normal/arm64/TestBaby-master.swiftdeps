@@ -1,0 +1,12 @@
+version: "Apple Swift version 6.0.2 (swiftlang-6.0.2.1.2 clang-1600.0.26.4)"
+options: "953fbb756e5500e37e1691dd003b855f6f8bbc7c09b9615b8ea2625cdbced13a"
+build_start_time: [1752762829, 547925000]
+build_end_time: [1752762832, 45459000]
+inputs:
+  "/Users/danielj/Desktop/SwiftUI/TestBaby/TestBaby/BabyDO.swift": [1752723024, 240400530]
+  "/Users/danielj/Desktop/SwiftUI/TestBaby/TestBaby/BabyOO.swift": [1752723051, 461888502]
+  "/Users/danielj/Desktop/SwiftUI/TestBaby/TestBaby/SymbolsView.swift": [1752762810, 480443445]
+  "/Users/danielj/Desktop/SwiftUI/TestBaby/TestBaby/TestBabyApp.swift": [1715209238, 815812596]
+  "/Users/danielj/Desktop/SwiftUI/TestBaby/TestBaby/animation.swift": [1752723033, 916773951]
+  ? "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/DerivedSources/GeneratedAssetSymbols.swift"
+  : [1752762781, 790133990]

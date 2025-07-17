@@ -1,0 +1,9 @@
+"/Users/danielj/Desktop/SwiftUI/TestBaby/TestBaby/BabyDO.swift":
+  abi-baseline-json: "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBaby.abi.json"
+  swiftmodule: "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBaby.swiftmodule"
+  swiftdoc: "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBaby.swiftdoc"
+  diagnostics: "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBaby-master.dia"
+  dependencies: "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBaby-master.d"
+  objc-header: "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBaby-Swift.h"
+  swiftsourceinfo: "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBaby.swiftsourceinfo"
+  const-values: "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBaby-master.swiftconstvalues"

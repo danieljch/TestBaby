@@ -1,0 +1,40 @@
+{
+  "" : {
+    "const-values" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBaby-master.swiftconstvalues",
+    "dependencies" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBaby-master.d",
+    "diagnostics" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBaby-master.dia",
+    "emit-module-dependencies" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBaby-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBaby-master-emit-module.dia",
+    "swift-dependencies" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBaby-master.swiftdeps"
+  },
+  "/Users/danielj/Desktop/SwiftUI/TestBaby/TestBaby/BabyDO.swift" : {
+    "index-unit-output-path" : "/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/BabyDO.o",
+    "llvm-bc" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/BabyDO.bc",
+    "object" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/BabyDO.o"
+  },
+  "/Users/danielj/Desktop/SwiftUI/TestBaby/TestBaby/BabyOO.swift" : {
+    "index-unit-output-path" : "/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/BabyOO.o",
+    "llvm-bc" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/BabyOO.bc",
+    "object" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/BabyOO.o"
+  },
+  "/Users/danielj/Desktop/SwiftUI/TestBaby/TestBaby/SymbolsView.swift" : {
+    "index-unit-output-path" : "/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/SymbolsView.o",
+    "llvm-bc" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/SymbolsView.bc",
+    "object" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/SymbolsView.o"
+  },
+  "/Users/danielj/Desktop/SwiftUI/TestBaby/TestBaby/TestBabyApp.swift" : {
+    "index-unit-output-path" : "/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBabyApp.o",
+    "llvm-bc" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBabyApp.bc",
+    "object" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/TestBabyApp.o"
+  },
+  "/Users/danielj/Desktop/SwiftUI/TestBaby/TestBaby/animation.swift" : {
+    "index-unit-output-path" : "/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/animation.o",
+    "llvm-bc" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/animation.bc",
+    "object" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/animation.o"
+  },
+  "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/danielj/Desktop/SwiftUI/TestBaby/build/TestBaby.build/Release-iphoneos/TestBaby.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  }
+}

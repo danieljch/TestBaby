@@ -1,0 +1,24 @@
+{
+  "source": "/Users/danielj/Desktop/SwiftUI/TestBaby/TestBaby/animation.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Tiempo restante: %lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 47
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tiempo restante: %lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 62
+        }
+      }
+    ]
+  },
+  "version": 1
+}

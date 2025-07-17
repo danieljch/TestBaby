@@ -18,7 +18,7 @@ struct SymbolsView: View {
         TabView(selection: $currentIndex) {
             VStack {
                 if let symbol = oo.currentSymbol {
-                    AnimatedSymbolView(symbolName: symbol.name, color: symbol.color, onAnimationComplete: { oo.nextSymbol() remainingTime = Int(duration) }, remainingTime: $remainingTime)
+                    AnimatedSymbolView(symbolName: symbol.name, color: symbol.color, onAnimationComplete: { oo.nextSymbol(); remainingTime = Int(duration) }, remainingTime: $remainingTime)
                     .id(symbol.id)
                     Slider(value: $duration, in: 3...10, step: 1) { Text("Duration: \(Int(duration)) seconds") } .padding()
                 }

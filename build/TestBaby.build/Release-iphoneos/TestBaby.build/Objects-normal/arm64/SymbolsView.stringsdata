@@ -1,0 +1,32 @@
+{
+  "source": "/Users/danielj/Desktop/SwiftUI/TestBaby/TestBaby/SymbolsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "View 2",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 28
+        }
+      },
+      {
+        "comment": "",
+        "key": "View 3",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 32
+        }
+      },
+      {
+        "comment": "",
+        "key": "Duration: %lld seconds",
+        "location": {
+          "startingColumn": 74,
+          "startingLine": 23
+        }
+      }
+    ]
+  },
+  "version": 1
+}
